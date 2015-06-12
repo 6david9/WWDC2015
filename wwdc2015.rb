@@ -26,7 +26,7 @@ url_links.each_pair do |title, link|
   	hd_link = doc.xpath("//a[text()='HD']").last.attributes['href'].value
 
   	semaphore.synchronize {
-  		puts "#{title}:  \n\tSD:#{sd_link}\n\tHD:#{hd_link}"
+  		puts "#{title}:  \n\tSD:#{sd_link}\n\tHD:#{hd_link}\n"
   		sd_links[title] = sd_link
   		hd_links[title] = hd_link
  	  }
