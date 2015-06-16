@@ -18,17 +18,20 @@ trdgroup = ThreadGroup.new
 
 sd_links = {}
 hd_links = {}
+pdf_links = {}
 
 url_links.each_pair do |title, link|
   trd = Thread.new {
   	doc = Nokogiri::HTML(open(link))
   	sd_link = doc.xpath("//a[text()='SD']").last.attributes['href'].value
   	hd_link = doc.xpath("//a[text()='HD']").last.attributes['href'].value
+    pdf_link = doc.xpath("//a[text()='PDF']").last.attributes['href'].value
 
   	semaphore.synchronize {
-  		puts "#{title}:  \n\tSD:#{sd_link}\n\tHD:#{hd_link}\n"
+  		puts "#{title}:  \n\tSD:#{sd_link}\n\tHD:#{hd_link}\n\tPDF:#{pdf_link}\n"
   		sd_links[title] = sd_link
   		hd_links[title] = hd_link
+      pdf_links[title] = pdf_link
  	  }
   }
   trdgroup.add(trd)
@@ -41,3 +44,4 @@ end
 
 File.open('wwdc2015-sd.txt', 'w+') { |f| f.write(sd_links.values.join("\n")) }
 File.open('wwdc2015-hd.txt', 'w+') { |f| f.write(hd_links.values.join("\n")) }
+File.open('wwdc2015-pdf.txt', 'w+') { |f| f.write(pdf_links.values.join("\n")) }
