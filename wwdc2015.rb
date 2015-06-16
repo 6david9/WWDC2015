@@ -14,18 +14,19 @@ links.each do |link|
 end
 
 semaphore = Mutex.new
-trdgroup = ThreadGroup.new
+threads = []
 
 sd_links = {}
 hd_links = {}
 pdf_links = {}
 
 url_links.each_pair do |title, link|
-  trd = Thread.new {
+  threads << Thread.new {
   	doc = Nokogiri::HTML(open(link))
   	sd_link = doc.xpath("//a[text()='SD']").last.attributes['href'].value
   	hd_link = doc.xpath("//a[text()='HD']").last.attributes['href'].value
-    pdf_link = doc.xpath("//a[text()='PDF']").last.attributes['href'].value
+    
+    pdf_link = doc.xpath("//a[text()='PDF']").last.attributes['href'].value if doc.xpath("//a[text()='PDF']").last
 
   	semaphore.synchronize {
   		puts "#{title}:  \n\tSD:#{sd_link}\n\tHD:#{hd_link}\n\tPDF:#{pdf_link}\n"
@@ -34,13 +35,10 @@ url_links.each_pair do |title, link|
       pdf_links[title] = pdf_link
  	  }
   }
-  trdgroup.add(trd)
+  
 end
 
-loop do
-	break if trdgroup.list.size == 0
-	sleep 1
-end
+threads.map { |trd| trd.join }
 
 File.open('wwdc2015-sd.txt', 'w+') { |f| f.write(sd_links.values.join("\n")) }
 File.open('wwdc2015-hd.txt', 'w+') { |f| f.write(hd_links.values.join("\n")) }
