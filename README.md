@@ -418,4 +418,8 @@ Introducing the Contacts Framework for iOS and OS X:
 What's New in LLDB:  
 &nbsp;&nbsp;&nbsp;&nbsp;SD:http://devstreaming.apple.com/videos/wwdc/2015/402c0mhxbs8tt52t/402/402_sd_whats_new_in_lldb.mp4?dl=1  
 &nbsp;&nbsp;&nbsp;&nbsp;HD:http://devstreaming.apple.com/videos/wwdc/2015/402c0mhxbs8tt52t/402/402_hd_whats_new_in_lldb.mp4?dl=1  
-&nbsp;&nbsp;&nbsp;&nbsp;PDF:http://devstreaming.apple.com/videos/wwdc/2015/402c0mhxbs8tt52t/402/402_whats_new_in_lldb.pdf?dl=1  
+&nbsp;&nbsp;&nbsp;&nbsp;PDF:http://devstreaming.apple.com/videos/wwdc/2015/402c0mhxbs8tt52t/402/402_whats_new_in_lldb.pdf?dl=1
+Advanced Debugging and the Address Sanitizer:  
+&nbsp;&nbsp;&nbsp;&nbsp;SD:http://devstreaming.apple.com/videos/wwdc/2015/413eflf3lrh1tyo/413/413_sd_advanced_debugging_and_the_address_sanitizer.mp4?dl=1  
+&nbsp;&nbsp;&nbsp;&nbsp;HD:http://devstreaming.apple.com/videos/wwdc/2015/413eflf3lrh1tyo/413/413_hd_advanced_debugging_and_the_address_sanitizer.mp4?dl=1  
+&nbsp;&nbsp;&nbsp;&nbsp;PDF:http://devstreaming.apple.com/videos/wwdc/2015/413eflf3lrh1tyo/413/413_hd_advanced_debugging_and_the_address_sanitizer.pdf?dl=1  
